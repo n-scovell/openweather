@@ -1,0 +1,224 @@
+body {
+    background:#333;
+    margin:0px;
+    background-image:url('https://png.pngtree.com/thumb_back/fh260/background/20230930/pngtree-a-blue-sky-above-clouds-with-clouds-image_13313410.jpg');
+    background-size:100% auto;
+    background-repeat:no-repeat;
+}
+$maxWidth:800px;
+$cellSpc:5px;
+$myFont: 'Arial', sans-serif;
+$mTxtC:#333;
+@mixin cellStyle() {
+    box-shadow:0px 3px 5px rgba(0,0,0,.2);
+    background:rgba(255,255,255,.5);
+    backdrop-filter: blur(5px);
+    border-radius:5px;
+    transition:background .5s;
+    &:hover {
+        cursor:pointer;
+        background:rgba(255,255,255,.8);
+        transition:background .5s;
+    }
+}
+@mixin pos($pos, $top, $left, $right, $bottom, $tranA, $tranB) {
+    position:$pos;
+    top:$top;
+    left:$left;
+    right:$right;
+    bottom:$bottom;
+    transform:translate($tranA, $tranB);
+}
+@mixin font($fontSize, $fontWeight, $letteSpacing, $color, $font, $style, $align) {
+    color:$color;
+    font-family:$font;
+    font-style:$style;
+    font-size:$fontSize;
+    font-weight:$fontWeight;
+    letter-spacing:$letteSpacing;
+    text-align:$align;
+}
+.mainCont {
+    width:99%;
+    max-width:$maxWidth;
+    @include pos(absolute, 50%, 50%, null, null, -50%, -50%);
+    section:nth-child(1), section:nth-child(2) .left, section:nth-child(2) .right, section:nth-child(3) div, section:nth-child(4) {
+        @include cellStyle;
+    }
+    section:nth-child(1) {
+        height:40px;
+        display:flex; 
+        margin-bottom:$cellSpc;
+        h2 {  
+            @include pos(absolute, 50%, 10px, null, null, 0%, -50%);
+            @include font(20px, 600, -.05em, $mTxtC, $myFont, normal, left);
+            margin:0px;
+            padding:0px;
+        }
+        p {
+            @include pos(absolute, 50%, null, 10px, null, 0%, -50%);
+            @include font(12px, 200, -.05em, $mTxtC, $myFont, italic, left);
+            padding:0px;
+            margin:0px;
+        }
+    }
+    section:nth-child(2) {
+        height:100px;
+        display:flex;
+        gap:$cellSpc;
+        margin-bottom:$cellSpc;
+        div {
+            flex:1;
+            height:100%;
+            &.left, &.right {
+                flex:1;
+                position:relative;
+                .spotInfo {
+                    @include font(14px, 500, -.05em, $mTxtC, $myFont, normal, left);
+                    @include pos(absolute, 50%, 300px, null, null, -50%, -50%);
+                    height:auto;
+                    p {
+                        margin:5px 0px;
+                    }
+                }
+            }
+            &.right {
+                .spotInfo {
+                    width:100%;
+                    padding-right:10px;
+                    box-sizing:border-box;
+                    @include font(14px, 500, -.05em, $mTxtC, $myFont, normal, right);
+                    @include pos(absolute, 50%, 0px, null, null, 0%, -50%);
+                    strong {
+                        font-size:18px;
+                    }
+                }
+            }
+            &.left {
+                flex: 0 0 51%;
+                display:flex;
+                position:relative;
+                h3 {
+                    @include font(50px, 500, -.05em, $mTxtC, $myFont, normal, left);
+                    @include pos(absolute, 50%, 150px, null, null, -50%, -50%);
+                    margin:0px;
+                    text-shadow:0 0 2px $mTxtC;
+                }
+                .fandc {
+                    height:auto;
+                    @include pos(absolute, 50%, 210px, null, null, -50%, -50%);
+                    button {
+                        border:none;
+                        background:none;
+                        position:relative;
+                        border-bottom:2px solid transparent;
+                        transition:all .5s;
+                        padding:0px;
+                        cursor:pointer;
+                        &.active {
+                            border-bottom:2px solid #333;
+                            transition:all .5s;
+                        }
+                        &:nth-child(1) {
+                            margin-right:15px;
+                            &:after {
+                                content:' ';
+                                width:1px;
+                                height:80%;
+                                @include pos(absolute, 50%, null, -10px, null, -50%, -50%);
+                                background:#333;
+                            }
+                        }
+                    }
+                }
+                .imgCont {
+                    flex:0 0 100px;
+                    height:auto;
+                    position:relative;
+                    img {
+                        width:95%;
+                        @include pos(absolute, 50%, 50%, null, null, -50%, -50%);
+                    }
+                    &:after {
+                        content:' ';
+                        width:2px;
+                        height:60%;
+                        opacity:.5;
+                        background:$mTxtC;
+                        border-radius:5px;
+                        @include pos(absolute, 50%, null, 0px, null, 0%, -50%);
+                    }
+                }
+            }
+        }
+    }
+    section:nth-child(3) {
+        height:130px;
+        display:flex;
+        gap:$cellSpc;
+        margin-bottom:$cellSpc;
+        div {
+            flex:1;
+            position:relative;
+            img {
+                @include pos(absolute, 50%, 50%, 0px, null, -50%, -50%);
+                z-index:1;
+            }
+            &:after {
+                $w:40%;
+                content:' ';
+                width:$w;
+                height:$w;
+                background:rgba(0,0,0,.1);
+                filter:blur(10px);
+                @include pos(absolute, 50%, 50%, 0px, null, -50%, -50%);
+                z-index:0;
+            }
+            p {
+                $per:15%;
+                @include font(14px, 800, -.05em, $mTxtC, $myFont, normal, center);
+                margin:0px;
+                position:absolute;
+                width:100%;
+                &.a {
+                    top:$per;
+                }
+                &.b {
+                    bottom:$per;
+                }
+            }
+        }
+    }
+    section:nth-child(4) {
+        height:40px;
+        display:flex; 
+        overflow:hidden;
+        input, button {
+            flex:1;
+        }
+        button {
+            background:none;
+            border:none;
+            cursor:pointer;
+            @include font(14px, 800, -.05em, $mTxtC, $myFont, normal, center);
+            &:hover {
+                background:rgba(255,255,255,.8);
+            }
+        }
+        input {
+            flex:0 0 90%;
+            background:none;
+            border:none;
+            margin:0px;
+            height:100%;
+            padding-left:10px;
+            box-sizing:border-box;
+            @include font(14px, 800, -.05em, $mTxtC, $myFont, normal, left);
+            &:focus  {
+                background:none;
+                border:none;
+                outline:none;
+            }
+        }
+    }
+}

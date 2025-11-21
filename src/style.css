@@ -1,0 +1,284 @@
+body {
+  background: #333;
+  margin: 0px;
+  background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20230930/pngtree-a-blue-sky-above-clouds-with-clouds-image_13313410.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.mainCont {
+  width: 99%;
+  max-width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.mainCont section:nth-child(1), .mainCont section:nth-child(2) .left, .mainCont section:nth-child(2) .right, .mainCont section:nth-child(3) div, .mainCont section:nth-child(4) {
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-radius: 5px;
+  transition: background 0.5s;
+}
+.mainCont section:nth-child(1):hover, .mainCont section:nth-child(2) .left:hover, .mainCont section:nth-child(2) .right:hover, .mainCont section:nth-child(3) div:hover, .mainCont section:nth-child(4):hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.8);
+  transition: background 0.5s;
+}
+.mainCont section:nth-child(1) {
+  height: 40px;
+  display: flex;
+  margin-bottom: 5px;
+}
+.mainCont section:nth-child(1) h2 {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(0%, -50%);
+  color: #333;
+  font-family: "Arial", sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  text-align: left;
+  margin: 0px;
+  padding: 0px;
+}
+.mainCont section:nth-child(1) p {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(0%, -50%);
+  color: #333;
+  font-family: "Arial", sans-serif;
+  font-style: italic;
+  font-size: 12px;
+  font-weight: 200;
+  letter-spacing: -0.05em;
+  text-align: left;
+  padding: 0px;
+  margin: 0px;
+}
+.mainCont section:nth-child(2) {
+  height: 100px;
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+.mainCont section:nth-child(2) div {
+  flex: 1;
+  height: 100%;
+}
+.mainCont section:nth-child(2) div.left, .mainCont section:nth-child(2) div.right {
+  flex: 1;
+  position: relative;
+}
+.mainCont section:nth-child(2) div.left .spotInfo, .mainCont section:nth-child(2) div.right .spotInfo {
+  color: #333;
+  font-family: "Arial", sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  text-align: left;
+  position: absolute;
+  top: 50%;
+  left: 300px;
+  transform: translate(-50%, -50%);
+  height: auto;
+}
+.mainCont section:nth-child(2) div.left .spotInfo p, .mainCont section:nth-child(2) div.right .spotInfo p {
+  margin: 5px 0px;
+}
+.mainCont section:nth-child(2) div.right .spotInfo {
+  width: 100%;
+  padding-right: 10px;
+  box-sizing: border-box;
+  color: #333;
+  font-family: "Arial", sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  text-align: right;
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  transform: translate(0%, -50%);
+}
+.mainCont section:nth-child(2) div.right .spotInfo strong {
+  font-size: 18px;
+}
+.mainCont section:nth-child(2) div.left {
+  flex: 0 0 51%;
+  display: flex;
+  position: relative;
+}
+.mainCont section:nth-child(2) div.left h3 {
+  color: #333;
+  font-family: "Arial", sans-serif;
+  font-style: normal;
+  font-size: 50px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  text-align: left;
+  position: absolute;
+  top: 50%;
+  left: 150px;
+  transform: translate(-50%, -50%);
+  margin: 0px;
+  text-shadow: 0 0 2px #333;
+}
+.mainCont section:nth-child(2) div.left .fandc {
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 210px;
+  transform: translate(-50%, -50%);
+}
+.mainCont section:nth-child(2) div.left .fandc button {
+  border: none;
+  background: none;
+  position: relative;
+  border-bottom: 2px solid transparent;
+  transition: all 0.5s;
+  padding: 0px;
+  cursor: pointer;
+}
+.mainCont section:nth-child(2) div.left .fandc button.active {
+  border-bottom: 2px solid #333;
+  transition: all 0.5s;
+}
+.mainCont section:nth-child(2) div.left .fandc button:nth-child(1) {
+  margin-right: 15px;
+}
+.mainCont section:nth-child(2) div.left .fandc button:nth-child(1):after {
+  content: " ";
+  width: 1px;
+  height: 80%;
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  transform: translate(-50%, -50%);
+  background: #333;
+}
+.mainCont section:nth-child(2) div.left .imgCont {
+  flex: 0 0 100px;
+  height: auto;
+  position: relative;
+}
+.mainCont section:nth-child(2) div.left .imgCont img {
+  width: 95%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.mainCont section:nth-child(2) div.left .imgCont:after {
+  content: " ";
+  width: 2px;
+  height: 60%;
+  opacity: 0.5;
+  background: #333;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translate(0%, -50%);
+}
+.mainCont section:nth-child(3) {
+  height: 130px;
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+.mainCont section:nth-child(3) div {
+  flex: 1;
+  position: relative;
+}
+.mainCont section:nth-child(3) div img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: 0px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.mainCont section:nth-child(3) div:after {
+  content: " ";
+  width: 40%;
+  height: 40%;
+  background: rgba(0, 0, 0, 0.1);
+  filter: blur(10px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: 0px;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.mainCont section:nth-child(3) div p {
+  color: #333;
+  font-family: "Arial", sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  text-align: center;
+  margin: 0px;
+  position: absolute;
+  width: 100%;
+}
+.mainCont section:nth-child(3) div p.a {
+  top: 15%;
+}
+.mainCont section:nth-child(3) div p.b {
+  bottom: 15%;
+}
+.mainCont section:nth-child(4) {
+  height: 40px;
+  display: flex;
+  overflow: hidden;
+}
+.mainCont section:nth-child(4) input, .mainCont section:nth-child(4) button {
+  flex: 1;
+}
+.mainCont section:nth-child(4) button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-family: "Arial", sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  text-align: center;
+}
+.mainCont section:nth-child(4) button:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+.mainCont section:nth-child(4) input {
+  flex: 0 0 90%;
+  background: none;
+  border: none;
+  margin: 0px;
+  height: 100%;
+  padding-left: 10px;
+  box-sizing: border-box;
+  color: #333;
+  font-family: "Arial", sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  text-align: left;
+}
+.mainCont section:nth-child(4) input:focus {
+  background: none;
+  border: none;
+  outline: none;
+}/*# sourceMappingURL=style.css.map */
