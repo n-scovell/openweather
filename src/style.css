@@ -6,7 +6,7 @@ body {
   background-repeat: no-repeat;
 }
 
-.mainCont {
+.openWeather {
   width: 99%;
   max-width: 800px;
   position: absolute;
@@ -14,7 +14,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.mainCont section:nth-child(1), .mainCont section:nth-child(2) .left, .mainCont section:nth-child(2) .right, .mainCont section:nth-child(3) div, .mainCont section:nth-child(4) {
+.openWeather .location, .openWeather .twoPart .left, .openWeather .twoPart .right, .openWeather .forecast div, .openWeather .searcher, .openWeather ul li {
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   background: rgba(255, 255, 255, 0.5);
   -webkit-backdrop-filter: blur(5px);
@@ -22,17 +22,50 @@ body {
   border-radius: 5px;
   transition: background 0.5s;
 }
-.mainCont section:nth-child(1):hover, .mainCont section:nth-child(2) .left:hover, .mainCont section:nth-child(2) .right:hover, .mainCont section:nth-child(3) div:hover, .mainCont section:nth-child(4):hover {
+.openWeather .location:hover, .openWeather .twoPart .left:hover, .openWeather .twoPart .right:hover, .openWeather .forecast div:hover, .openWeather .searcher:hover, .openWeather ul li:hover {
   cursor: pointer;
   background: rgba(255, 255, 255, 0.8);
   transition: background 0.5s;
 }
-.mainCont section:nth-child(1) {
+.openWeather ul {
+  position: absolute;
+  top: 50%;
+  left: -50px;
+  transform: translate(-50%, -50%);
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+.openWeather ul li {
+  margin: 0px;
+  padding: 0px;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 5px;
+  text-align: center;
+  padding-top: 15px;
+  box-sizing: border-box;
+}
+.openWeather ul li:last-child {
+  margin-bottom: 0px;
+}
+.openWeather ul li p {
+  margin: 0px;
+  text-transform: uppercase;
+  color: #333;
+  font-family: "Arial", sans-serif;
+  font-style: normal;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+.openWeather .location {
   height: 40px;
   display: flex;
   margin-bottom: 5px;
 }
-.mainCont section:nth-child(1) h2 {
+.openWeather .location h2 {
   position: absolute;
   top: 50%;
   left: 10px;
@@ -47,7 +80,7 @@ body {
   margin: 0px;
   padding: 0px;
 }
-.mainCont section:nth-child(1) p {
+.openWeather .location p {
   position: absolute;
   top: 50%;
   right: 10px;
@@ -62,21 +95,25 @@ body {
   padding: 0px;
   margin: 0px;
 }
-.mainCont section:nth-child(2) {
+.openWeather .twoPart {
   height: 100px;
   display: flex;
   gap: 5px;
   margin-bottom: 5px;
 }
-.mainCont section:nth-child(2) div {
+.openWeather .twoPart.hide {
+  display: none;
+}
+.openWeather .twoPart div {
   flex: 1;
   height: 100%;
 }
-.mainCont section:nth-child(2) div.left, .mainCont section:nth-child(2) div.right {
+.openWeather .twoPart div.left, .openWeather .twoPart div.right {
   flex: 1;
   position: relative;
+  transition: all 0.5s;
 }
-.mainCont section:nth-child(2) div.left .spotInfo, .mainCont section:nth-child(2) div.right .spotInfo {
+.openWeather .twoPart div.left .spotInfo, .openWeather .twoPart div.right .spotInfo {
   color: #333;
   font-family: "Arial", sans-serif;
   font-style: normal;
@@ -90,10 +127,10 @@ body {
   transform: translate(-50%, -50%);
   height: auto;
 }
-.mainCont section:nth-child(2) div.left .spotInfo p, .mainCont section:nth-child(2) div.right .spotInfo p {
+.openWeather .twoPart div.left .spotInfo p, .openWeather .twoPart div.right .spotInfo p {
   margin: 5px 0px;
 }
-.mainCont section:nth-child(2) div.right .spotInfo {
+.openWeather .twoPart div.right .spotInfo {
   width: 100%;
   padding-right: 10px;
   box-sizing: border-box;
@@ -109,15 +146,18 @@ body {
   left: 0px;
   transform: translate(0%, -50%);
 }
-.mainCont section:nth-child(2) div.right .spotInfo strong {
+.openWeather .twoPart div.right .spotInfo strong {
   font-size: 18px;
 }
-.mainCont section:nth-child(2) div.left {
+.openWeather .twoPart div.left {
   flex: 0 0 51%;
   display: flex;
   position: relative;
 }
-.mainCont section:nth-child(2) div.left h3 {
+.openWeather .twoPart div.left.single {
+  flex: 1;
+}
+.openWeather .twoPart div.left h3 {
   color: #333;
   font-family: "Arial", sans-serif;
   font-style: normal;
@@ -132,14 +172,14 @@ body {
   margin: 0px;
   text-shadow: 0 0 2px #333;
 }
-.mainCont section:nth-child(2) div.left .fandc {
+.openWeather .twoPart div.left .fandc {
   height: auto;
   position: absolute;
   top: 50%;
   left: 210px;
   transform: translate(-50%, -50%);
 }
-.mainCont section:nth-child(2) div.left .fandc button {
+.openWeather .twoPart div.left .fandc button {
   border: none;
   background: none;
   position: relative;
@@ -148,14 +188,14 @@ body {
   padding: 0px;
   cursor: pointer;
 }
-.mainCont section:nth-child(2) div.left .fandc button.active {
+.openWeather .twoPart div.left .fandc button.active {
   border-bottom: 2px solid #333;
   transition: all 0.5s;
 }
-.mainCont section:nth-child(2) div.left .fandc button:nth-child(1) {
+.openWeather .twoPart div.left .fandc button:nth-child(1) {
   margin-right: 15px;
 }
-.mainCont section:nth-child(2) div.left .fandc button:nth-child(1):after {
+.openWeather .twoPart div.left .fandc button:nth-child(1):after {
   content: " ";
   width: 1px;
   height: 80%;
@@ -165,19 +205,19 @@ body {
   transform: translate(-50%, -50%);
   background: #333;
 }
-.mainCont section:nth-child(2) div.left .imgCont {
+.openWeather .twoPart div.left .imgCont {
   flex: 0 0 100px;
   height: auto;
   position: relative;
 }
-.mainCont section:nth-child(2) div.left .imgCont img {
+.openWeather .twoPart div.left .imgCont img {
   width: 95%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.mainCont section:nth-child(2) div.left .imgCont:after {
+.openWeather .twoPart div.left .imgCont:after {
   content: " ";
   width: 2px;
   height: 60%;
@@ -189,17 +229,17 @@ body {
   right: 0px;
   transform: translate(0%, -50%);
 }
-.mainCont section:nth-child(3) {
+.openWeather .forecast {
   height: 130px;
   display: flex;
   gap: 5px;
   margin-bottom: 5px;
 }
-.mainCont section:nth-child(3) div {
+.openWeather .forecast div {
   flex: 1;
   position: relative;
 }
-.mainCont section:nth-child(3) div img {
+.openWeather .forecast div img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -207,7 +247,7 @@ body {
   transform: translate(-50%, -50%);
   z-index: 1;
 }
-.mainCont section:nth-child(3) div:after {
+.openWeather .forecast div:after {
   content: " ";
   width: 40%;
   height: 40%;
@@ -220,7 +260,7 @@ body {
   transform: translate(-50%, -50%);
   z-index: 0;
 }
-.mainCont section:nth-child(3) div p {
+.openWeather .forecast div p {
   color: #333;
   font-family: "Arial", sans-serif;
   font-style: normal;
@@ -232,21 +272,21 @@ body {
   position: absolute;
   width: 100%;
 }
-.mainCont section:nth-child(3) div p.a {
+.openWeather .forecast div p.a {
   top: 15%;
 }
-.mainCont section:nth-child(3) div p.b {
+.openWeather .forecast div p.b {
   bottom: 15%;
 }
-.mainCont section:nth-child(4) {
+.openWeather .searcher {
   height: 40px;
   display: flex;
   overflow: hidden;
 }
-.mainCont section:nth-child(4) input, .mainCont section:nth-child(4) button {
+.openWeather .searcher input, .openWeather .searcher button {
   flex: 1;
 }
-.mainCont section:nth-child(4) button {
+.openWeather .searcher button {
   background: none;
   border: none;
   cursor: pointer;
@@ -258,10 +298,10 @@ body {
   letter-spacing: -0.05em;
   text-align: center;
 }
-.mainCont section:nth-child(4) button:hover {
+.openWeather .searcher button:hover {
   background: rgba(255, 255, 255, 0.8);
 }
-.mainCont section:nth-child(4) input {
+.openWeather .searcher input {
   flex: 0 0 90%;
   background: none;
   border: none;
@@ -277,7 +317,7 @@ body {
   letter-spacing: -0.05em;
   text-align: left;
 }
-.mainCont section:nth-child(4) input:focus {
+.openWeather .searcher input:focus {
   background: none;
   border: none;
   outline: none;
