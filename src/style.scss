@@ -38,14 +38,39 @@ $mTxtC:#333;
     letter-spacing:$letteSpacing;
     text-align:$align;
 }
-.mainCont {
+.openWeather {
     width:99%;
     max-width:$maxWidth;
     @include pos(absolute, 50%, 50%, null, null, -50%, -50%);
-    section:nth-child(1), section:nth-child(2) .left, section:nth-child(2) .right, section:nth-child(3) div, section:nth-child(4) {
+    .location, .twoPart .left, .twoPart .right, .forecast div, .searcher, ul li {
         @include cellStyle;
     }
-    section:nth-child(1) {
+    ul {
+        @include pos(absolute, 50%, -50px, null, null, -50%, -50%);
+        list-style-type:none;
+        margin:0px;
+        padding:0px;
+        li {
+            $w:60px;
+            margin:0px;
+            padding:0px;
+            width:$w;
+            height:$w;
+            margin-bottom:$cellSpc;
+            text-align:center;
+            padding-top:15px;
+            box-sizing:border-box;
+            &:last-child {
+                margin-bottom:0px;
+            }
+            p {
+                margin:0px;
+                text-transform:uppercase;
+                @include font(9px, 700, .01em, $mTxtC, $myFont, normal, center);
+            }
+        }
+    }
+    .location {
         height:40px;
         display:flex; 
         margin-bottom:$cellSpc;
@@ -62,17 +87,21 @@ $mTxtC:#333;
             margin:0px;
         }
     }
-    section:nth-child(2) {
+    .twoPart{
         height:100px;
         display:flex;
         gap:$cellSpc;
         margin-bottom:$cellSpc;
+        &.hide {
+            display:none;
+        }
         div {
             flex:1;
             height:100%;
             &.left, &.right {
                 flex:1;
                 position:relative;
+                transition:all .5s;
                 .spotInfo {
                     @include font(14px, 500, -.05em, $mTxtC, $myFont, normal, left);
                     @include pos(absolute, 50%, 300px, null, null, -50%, -50%);
@@ -98,6 +127,9 @@ $mTxtC:#333;
                 flex: 0 0 51%;
                 display:flex;
                 position:relative;
+                &.single {
+                    flex:1;
+                }
                 h3 {
                     @include font(50px, 500, -.05em, $mTxtC, $myFont, normal, left);
                     @include pos(absolute, 50%, 150px, null, null, -50%, -50%);
@@ -152,7 +184,7 @@ $mTxtC:#333;
             }
         }
     }
-    section:nth-child(3) {
+    .forecast {
         height:130px;
         display:flex;
         gap:$cellSpc;
@@ -189,7 +221,7 @@ $mTxtC:#333;
             }
         }
     }
-    section:nth-child(4) {
+    .searcher {
         height:40px;
         display:flex; 
         overflow:hidden;
